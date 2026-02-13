@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Agromiteon</title>
+  </head>
+  <body>
+    <header>
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li>
+            <a
+              class="main-nav-link home" href="#home">Home</a>
+          </li>
+          <li><a class="main-nav-link" href="#sobre">Sobre</a></li>
+          <li><a class="main-nav-link" href="#eudr_lksg">EUDR & LkSG</a></li>
+          <li>
+            <a class="main-nav-link" href="#solucoes">Soluções</a>
+          </li>
+          <li><a class="main-nav-link" href="#filosofia">Filosofia</a></li>
+          <li><a class="main-nav-link" href="#contatos">Contatos</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section-hero" id="home">
+        <div class="header-container--inner">
+          <img
+            src="img/INTELLIGENCE FOR GLOBAL AGRIBUSINESS.png"
+            alt="Logo da Agromiteon"
+            class="hero-img"
+          />
+          <h1>AGROMITEON</h1>
+          <h2 class="header-h2">A força do agro brasileiro ligada ao rigor regulatório europeu</h2>
+          <br />
+          <a href="#contatos" class="btn btn--white">Entre em Contato &darr;</a>
+        </div>
+      </section>
+
+      <section class="sobre" id="sobre">
+        <div class="container">
+          <div class="h2-flex">
+            <h2>Sobre</h2>
+          </div>
+          <div class="sobre-intro-container">
+            <div class="sobre-intro-text">
+              <p>
+                A Agromiteon nasce para ser a <strong>ponte definitiva</strong> entre o 
+                agronegócio brasileiro e os mercados regulados europeus.
+              </p>
+              <p>
+                Com operação entre Europa e Brasil, atuamos na interseção entre:
+              </p>
+              <p class="sobre-areas-interactive">
+                <span class="area-word" data-image="legislacao">Legislação</span> • 
+                <span class="area-word" data-image="cadeias">Cadeias de Suprimentos</span> • 
+                <span class="area-word" data-image="rastreabilidade">Rastreabilidade</span> • 
+                <span class="area-word" data-image="inteligencia">Inteligência de Mercado</span> • 
+                <span class="area-word" data-image="investimentos">Investimentos</span>
+              </p>
+              <p></p>
+            </div>
+            
+            <div class="sobre-intro-image">
+              <img
+                id="areas-dynamic-img"
+                src="img/INTELLIGENCE FOR GLOBAL AGRIBUSINESS.png"
+                alt="Agromiteon - Intelligence for Global Agribusiness"
+                class="areas-img"
+                data-default="img/INTELLIGENCE FOR GLOBAL AGRIBUSINESS.png"
+                data-legislacao="img/legislacao.png"
+                data-cadeias="img/cadeias.png"
+                data-rastreabilidade="img/rastreabilidade.png"
+                data-inteligencia="img/inteligencia.png"
+                data-investimentos="img/investimentos.png"
+              />
+            </div>
+          </div>
+          
+          <script>
+            // Script para trocar imagem ao passar o mouse nas palavras
+            const areaWords = document.querySelectorAll('.area-word');
+            const dynamicImg = document.getElementById('areas-dynamic-img');
+            const defaultImg = dynamicImg.getAttribute('data-default');
+            
+            areaWords.forEach(word => {
+              word.addEventListener('mouseenter', function() {
+                const imageKey = this.getAttribute('data-image');
+                const newImageSrc = dynamicImg.getAttribute('data-' + imageKey);
+                
+                if (newImageSrc && dynamicImg.src !== newImageSrc) {
+                  dynamicImg.style.opacity = '0';
+                  setTimeout(() => {
+                    dynamicImg.src = newImageSrc;
+                    dynamicImg.style.opacity = '1';
+                  }, 300);
+                }
+              });
+              
+              word.addEventListener('mouseleave', function() {
+                dynamicImg.style.opacity = '0';
+                setTimeout(() => {
+                  dynamicImg.src = defaultImg;
+                  dynamicImg.style.opacity = '1';
+                }, 300);
+              });
+            });
+          </script>
+          
+          <div class="sobre-missao">
+            <h3>Nossa Missão</h3>
+            <p>
+              Transformar exigências regulatórias em <strong>vantagem competitiva</strong>, 
+              permitindo que empresas operem globalmente com segurança, transparência e credibilidade.
+            </p>
+          </div>
+          
+          
+          <div class="sobre-dual-grid">
+            <div class="sobre-specialists-card">
+              <h3>Specialists in EUDR & LkSG</h3>
+              <p class="sobre-subtitle-text">For Global Agribusiness</p>
+              <p>
+                Compliance orientado por dados para empresas que operam nos <strong>mercados agrícolas mais exigentes do mundo</strong>.
+                A Agromiteon é especializada em <strong>EUDR & LkSG</strong>, conectando legislação, rastreabilidade e gestão da cadeia de suprimentos 
+                para garantir conformidade, transparência e acesso seguro aos mercados internacionais.
+              </p>
+              <p class="sobre-operacao">🌍 Operação: Europa • Brasil • Mercados Globais</p>
+            </div>
+            
+            <div class="sobre-posicionamento-card">
+              <h3>Nosso Posicionamento</h3>
+              <ul class="posicionamento-list-styled">
+                <li><span class="check-icon">✓</span> Especialistas em <strong>EUDR & LkSG</strong></li>
+                <li><span class="check-icon">✓</span> Compliance aplicado ao agronegócio real</li>
+                <li><span class="check-icon">✓</span> <strong>Ponte estratégica</strong> entre Europa e Brasil</li>
+                <li><span class="check-icon">✓</span> Inteligência orientada por dados e risco</li>
+                <li><span class="check-icon">✓</span> Execução técnica com visão de negócio</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="eudr_lksg">
+        <div class="container">
+          <h2>EUDR & LkSG</h2>
+          <div class="eudr-contexto-text">
+            <p>
+              <strong>Nosso produto principal</strong>. A Agromiteon é uma empresa dedicada à implementação prática e estratégica dos marcos regulatórios europeus EUDR (EU Deforestation Regulation) e LkSG (German Supply Chain Due Diligence Act) no agronegócio global.
+            </p>
+            <p>
+              Nosso diferencial está em transformar leis complexas em processos operacionais claros, auditáveis e economicamente viáveis, conectando produtores, traders, indústrias, investidores e compradores internacionais, além disso nosso time esta espalhado pelo Brasil e pela União Europeia recebendo as novidades em primeira mão e traduzindo para os nossos clientes.
+            </p>
+          </div>
+          
+          <div class="eudr-grid">
+            <div class="eudr-card">
+              <h3>EUDR</h3>
+              <p class="eudr-subtitle">EU Deforestation Regulation</p>
+              <br>
+              <p><strong>Apoiamos a empresa com:</strong></p>
+              <br>
+              <ul class="posicionamento-list-styled">
+                <li><span class="check-icon">*</span>Rastreabilidade geográfica de origem (polígono e documentação)</li>
+                <li><span class="check-icon">*</span>Avaliação de risco de desmatamento e conversão de uso do solo</li>
+                <li><span class="check-icon">*</span>Estruturação de due diligence obrigatória</li>
+                <li><span class="check-icon">*</span>Relatórios compatíveis com autoridades e importadores europeus</li>
+                <li><span class="check-icon">*</span>Monitoramento contínuo de cadeias produtivas</li>
+              </ul>
+            </div>
+            
+            <div class="eudr-card">
+              <h3>LkSG</h3>
+              <p class="eudr-subtitle">German Supply Chain Due Diligence Act</p>
+              <br>
+              <p><strong>Desenvolvemos:</strong></p>
+              <br>
+              <ul class="posicionamento-list-styled">
+                <li><span class="check-icon">*</span>Mapeamento completo de cadeias globais de suprimentos</li>
+                <li><span class="check-icon">*</span>Protocolos de diligência contínua</li>
+                <li><span class="check-icon">*</span>Avaliação de risco socioambiental</li>
+                <li><span class="check-icon">*</span>Estruturação de políticas internas e governança</li>
+                <li><span class="check-icon">*</span>Relatórios executivos para empresas europeias</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="eudr-diferencial">
+            <h3>🎯 Resultado</h3>
+            <p>
+              Conformidade regulatória real, mitigação de riscos comerciais e acesso contínuo aos mercados europeus.
+            </p>
+          </div>
+          
+          <div class="compliance-program-card">
+            <div class="program-header">
+              <h3>AGROMITEON EUDR & LkSG COMPLIANCE PROGRAM</h3>
+              <p class="program-subtitle">Um programa contínuo para empresas que operam ou desejam operar nos mercados europeus com segurança regulatória.</p>
+            </div>
+            
+            <div class="program-content">
+              <div class="program-section">
+                <h4>O que está incluído:</h4>
+                <ul class="program-list">
+                  <li><span class="check-icon-program">✓</span> Estruturação completa de compliance EUDR & LkSG</li>
+                  <li><span class="check-icon-program">✓</span> Suporte técnico contínuo e prioritário</li>
+                  <li><span class="check-icon-program">✓</span> 1 consultoria estratégica mensal (nível executivo)</li>
+                </ul>
+              </div>
+              
+              <div class="program-section program-reports">
+                <h4>4 Relatórios Mensais Executivos:</h4>
+                <div class="reports-grid">
+                  <div class="report-item">
+                    <span class="report-number">01</span>
+                    <p>Compliance Regulatório & Due Diligence</p>
+                  </div>
+                  <div class="report-item">
+                    <span class="report-number">02</span>
+                    <p>Cadeias de Suprimentos & Rastreabilidade</p>
+                  </div>
+                  <div class="report-item">
+                    <span class="report-number">03</span>
+                    <p>Risco País & Investimentos (Brasil & LATAM)</p>
+                  </div>
+                  <div class="report-item">
+                    <span class="report-number">04</span>
+                    <p>Tendências de Mercado Agrícola Global</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="program-cta">
+                <p><strong>Ideal para:</strong> Empresas exportadoras, traders, indústrias e investidores que precisam de conformidade contínua e inteligência de mercado.</p>
+              </div>
+              
+              <div class="program-button-container">
+                <a href="#contatos" class="btn btn-program">Conhecer o Programa</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="solucoes">
+        <div class="container">
+          <h2>Nossas Soluções</h2>
+          <div class="grid-3-cols">
+            
+          </div>
+        </div>
+      </section>
+      <section id="filosofia">
+        <div class="container">
+          <h2>Filosofia</h2>
+          <div class="filosofia-container">
+            <div class="filosofia-text">
+              <h3>A força do agro brasileiro ligada ao rigor regulatório europeu.</h3>
+              <p>
+                Acreditamos que o agro brasileiro é um dos mais competitivos do mundo — e que o futuro do acesso 
+                aos mercados internacionais passa pela excelência regulatória, rastreabilidade e governança.
+              </p>
+            </div>
+            
+            <div class="filosofia-image">
+              <img
+                src="img/pessoas-que-participam-de-um-evento-de-negocios_23-2149346657.avif"
+                alt="Filosofia Agromiteon"
+                class="filosofia-img"
+              />
+            </div>
+          </div>
+          <p class="filosofia-highlight">
+            A Agromiteon existe para unir esses dois mundos.
+          </p>
+        </div>
+      </section>
+      <section id="contatos">
+        <div class="container">
+          <div class="contact-container">
+            <div class="contact-text">
+              <h2 class="h2-contact">Entre em Contato</h2>
+              <p>
+                    Se você tem interesse em saber mais sobre como a Agromiteon pode ajudar sua empresa a se adequar às regulamentações EUDR e LkSG, ou se deseja discutir possíveis parcerias, não hesite em entrar em contato. Estamos ansiosos para colaborar com você e contribuir para um futuro mais sustentável no agronegócio.
+              </p>
+              
+              <form class="newsletter-form" id="newsletter-form">
+                <div>
+                  <label for="full-name">Nome</label>
+                  <input
+                    id="name"
+                    type="text"
+                    placeholder="João Costa"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label for="email">Email</label>
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="seuemail@exemplo.com"
+                    required
+                  />
+                </div>
+                <button class="btn btn--form">Enviar</button>
+              </form>
+              <div id="statusNewsletter"></div>
+            </div>
+            <script>
+              document
+                .getElementById("newsletter-form")
+                .addEventListener("submit", function (event) {
+                  event.preventDefault();
+
+                  const name = document.getElementById("name").value; // Agora encontra o elemento com id="name"
+                  const email = document.getElementById("email").value;
+
+                  fetch(
+                    '/newsletter',
+                    {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify({ name, email }),
+                    }
+                  )
+                    .then((response) => response.json())
+                    .then((data) => {
+                      document.getElementById("statusNewsletter").textContent =
+                        data.message;
+                      if (data.success) {
+                        document.getElementById("newsletter-form").reset();
+                      }
+                    })
+                    .catch((error) => {
+                      console.error("Erro:", error);
+                      document.getElementById("statusNewsletter").textContent =
+                        "Ocorreu um erro ao assinar a newsletter.";
+                    });
+                });
+            </script>
+            <div class="contact-img-box" role="img" aria-label="Telefone"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container grid--footer">
+        <div class="footer-nav">
+          <ul class="footer-list">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#projetos">EUDR & LkSG</a></li>
+            <li>
+              <a href="#eudr_lksg">Soluões</a>
+            </li>
+            <li><a href="#contatos">Contato</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
