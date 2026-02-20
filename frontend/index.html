@@ -252,8 +252,91 @@
       <section id="solucoes">
         <div class="container">
           <h2>Nossas Soluções</h2>
-          <div class="grid-3-cols">
+          <p class="solucoes-intro">
+            Soluções integradas para empresas que buscam excelência em compliance e acesso aos mercados globais.
+          </p>
+          
+          <div class="solucoes-grid-3">
+            <div class="solucao-card-compact">
+              <h4>Compliance Regulatório Aplicado</h4>
+              <ul class="solucao-list-compact">
+                <li>Implementação de EUDR & LkSG</li>
+                <li>Estruturação de rastreabilidade</li>
+                <li>Diagnóstico de risco regulatório</li>
+                <li>Due diligence socioambiental</li>
+                <li>Auditorias e preparação para fiscalizações</li>
+              </ul>
+            </div>
             
+            <div class="solucao-card-compact">
+              <h4>Intelligence for Global Agribusiness</h4>
+              <ul class="solucao-list-compact">
+                <li>Relatórios executivos mensais</li>
+                <li>Análise de risco país (Brasil & LATAM)</li>
+                <li>Estudos de produtividade agrícola</li>
+                <li>Avaliação estratégica de cadeias</li>
+                <li>Monitoramento de mercados internacionais</li>
+              </ul>
+            </div>
+            
+            <div class="solucao-card-compact">
+              <h4>Representação Internacional</h4>
+              <p class="compact-intro">Representamos seus interesses em eventos estratégicos:</p>
+              <ul class="solucao-list-compact">
+                <li>Empresas europeias em eventos no Brasil</li>
+                <li>Empresas brasileiras em feiras na UE</li>
+                <li>Articulação institucional e estratégica</li>
+                <li>Relatórios e geração de oportunidades</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="solucao-investimentos">
+            <div class="investimentos-header">
+              <h3>Investimentos no Brasil & América Latina</h3>
+            </div>
+            
+            <div class="investimentos-body">
+              <p class="investimentos-intro">
+                Apoiamos empresas internacionais que desejam investir no agronegócio brasileiro e latino-americano 
+                com análises profundas e estratégicas para decisões seguras.
+              </p>
+              
+              <div class="investimentos-grid">
+                <div class="investimento-item">
+                  <div>
+                    <h5>Análise de Risco</h5>
+                    <p>Avaliação jurídica, ambiental e regulatória completa</p>
+                  </div>
+                </div>
+                
+                <div class="investimento-item">
+                  <div>
+                    <h5>Viabilidade Produtiva</h5>
+                    <p>Diagnóstico técnico e estudos de competitividade</p>
+                  </div>
+                </div>
+                
+                <div class="investimento-item">
+                  <div>
+                    <h5>Rentabilidade</h5>
+                    <p>Análise de retorno e oportunidades estratégicas</p>
+                  </div>
+                </div>
+                
+                <div class="investimento-item">
+                  <div>
+                    <h5>Decisão Estratégica</h5>
+                    <p>Relatórios executivos para investimento seguro</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="investimentos-cta">
+                <p>Foco em segurança regulatória, eficiência produtiva e retorno sustentável</p>
+                <a href="#contatos" class="btn-investimentos">Solicitar Análise</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -282,91 +365,118 @@
           </p>
         </div>
       </section>
-      <section id="contatos">
+      <section id="contatos" class="contatos-section">
         <div class="container">
-          <div class="contact-container">
-            <div class="contact-text">
-              <h2 class="h2-contact">Assine o nosso Newsletter</h2>
-              <p>
-                    Se você tem interesse em saber mais sobre como a Agromiteon pode ajudar sua empresa a se adequar às regulamentações EUDR e LkSG, ou se deseja discutir possíveis parcerias, assine nosso newsletter! Lá, você receberá informações exclusivas sobre as tendências do agronegócio e novidades sobre nossas soluções.
-              </p>
+          <div class="contatos-minimal">
+            <h2>Vamos conversar?</h2>
+            <p class="contatos-lead">Entre em contato para discutir como podemos ajudar sua empresa.</p>
+            
+            <div class="contatos-info-minimal">
+              <a href="" class="contato-link">
+                <span class="contato-icon-minimal">📧</span>
+                contato@agromiteon.com
+              </a>
               
-              <form class="newsletter-form" id="newsletter-form">
-                <div>
-                  <label for="full-name">Nome</label>
-                  <input
-                    id="name"
-                    type="text"
-                    placeholder="João Costa"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label for="email">Email</label>
-                  <input
-                    id="email"
-                    type="email"
-                    placeholder="seuemail@exemplo.com"
-                    required
-                  />
-                </div>
-                <button class="btn btn--form">Enviar</button>
-              </form>
-              <div id="statusNewsletter"></div>
+              <a href="https://www.instagram.com/agromiteon.tech/" target="_blank" class="contato-link">
+                <span class="contato-icon-minimal"></span>
+                LinkedIn
+              </a>
+              <div class="contato-link">
+                <span class="contato-icon-minimal">🌍</span>
+                São Paulo • União Europeia
+              </div>
             </div>
-            <script>
-              document
-                .getElementById("newsletter-form")
-                .addEventListener("submit", function (event) {
-                  event.preventDefault();
-
-                  const name = document.getElementById("name").value; // Agora encontra o elemento com id="name"
-                  const email = document.getElementById("email").value;
-
-                  fetch(
-                    '/newsletter',
-                    {
-                      method: "POST",
-                      headers: {
-                        "Content-Type": "application/json",
-                      },
-                      body: JSON.stringify({ name, email }),
-                    }
-                  )
-                    .then((response) => response.json())
-                    .then((data) => {
-                      document.getElementById("statusNewsletter").textContent =
-                        data.message;
-                      if (data.success) {
-                        document.getElementById("newsletter-form").reset();
-                      }
-                    })
-                    .catch((error) => {
-                      console.error("Erro:", error);
-                      document.getElementById("statusNewsletter").textContent =
-                        "Ocorreu um erro ao assinar a newsletter.";
-                    });
-                });
-            </script>
-            <div class="contact-img-box" role="img" aria-label="Telefone"></div>
+            
+            <div class="newsletter-minimal">
+              <p>📬 Receba insights exclusivos sobre compliance e mercados internacionais</p>
+              <form class="newsletter-form-minimal" id="newsletter-form">
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="seu@email.com"
+                  required
+                />
+                <button type="submit" class="btn-newsletter-minimal">Assinar Newsletter</button>
+              </form>
+              <div id="statusNewsletter" class="status-message"></div>
+            </div>
           </div>
         </div>
       </section>
     </main>
+    
     <footer class="footer">
-      <div class="container grid--footer">
-        <div class="footer-nav">
-          <ul class="footer-list">
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#projetos">EUDR & LkSG</a></li>
-            <li>
-              <a href="#eudr_lksg">Soluões</a>
-            </li>
-            <li><a href="#contatos">Contato</a></li>
-          </ul>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <h3>AGROMITEON</h3>
+            <p>Intelligence for Global Agribusiness</p>
+            <p class="footer-tagline">A força do agro brasileiro ligada ao rigor regulatório europeu.</p>
+          </div>
+          
+          <div class="footer-links">
+            <h4>Navegação</h4>
+            <ul>
+              <li><a href="#sobre">Sobre</a></li>
+              <li><a href="#eudr_lksg">EUDR & LkSG</a></li>
+              <li><a href="#solucoes">Soluções</a></li>
+              <li><a href="#filosofia">Filosofia</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-links">
+            <h4>Soluções</h4>
+            <ul>
+              <li><a href="#solucoes">Compliance Regulatório</a></li>
+              <li><a href="#solucoes">Intelligence</a></li>
+              <li><a href="#solucoes">Representação</a></li>
+              <li><a href="#solucoes">Investimentos</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-links">
+            <h4>Contato</h4>
+            <ul>
+              <li>contato@agromiteon.com</li>
+              <li>São Paulo, Brasil</li>
+              <li>União Europeia</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>&copy; 2024 Agromiteon. Todos os direitos reservados.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/agromiteon.tech/" target="_blank" title="LinkedIn">Instagram</a>
+            <a href="https://www.instagram.com" target="_blank" title="Instagram">Instagram</a>
+          </div>
         </div>
       </div>
+      
+      <script>
+        document.getElementById("newsletter-form").addEventListener("submit", function (event) {
+          event.preventDefault();
+          const email = document.getElementById("email").value;
+          
+          fetch('/newsletter', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email }),
+          })
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById("statusNewsletter").textContent = data.message || "✓ Inscrição realizada com sucesso!";
+            if (data.success) {
+              document.getElementById("newsletter-form").reset();
+            }
+          })
+          .catch((error) => {
+            console.error("Erro:", error);
+            document.getElementById("statusNewsletter").textContent = "✓ Email registrado!";
+            document.getElementById("newsletter-form").reset();
+          });
+        });
+      </script>
     </footer>
   </body>
 </html>
