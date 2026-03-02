@@ -308,10 +308,7 @@ section {
   padding: 0;
 }
 
-.footer-icon {
-  stroke: var(--text-color-main);
-  fill: var(--text-color-main);
-}
+
 
 .copyright {
   font-size: 14px;
@@ -1988,8 +1985,8 @@ tilos para seção EUDR & LkSG */
 }
 
 .footer-icon {
-  stroke: #e0e0e0;
-  fill: #e0e0e0;
+  stroke: #000000;
+  fill: #000000;
   transition: stroke 0.3s ease, fill 0.3s ease;
 }
 
@@ -2019,5 +2016,199 @@ tilos para seção EUDR & LkSG */
 }
 
 
+/* Seção Contatos */
+.contatos-section {
+  background-color: white;
+  padding: 8rem 0 4rem 0;
+  margin-bottom: 10px;
+}
 
+.contatos-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 5rem auto;
+}
 
+.contatos-header h2 {
+  font-size: 5rem;
+  color: var(--text-color-dark);
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.contatos-lead {
+  font-size: 2.2rem;
+  color: var(--text-color-main);
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.contatos-info-wrapper {
+  max-width: 900px;
+  margin: 0 auto 6rem auto;
+  background-color: #f8f9fa;
+  padding: 4rem 3rem;
+  border-radius: 16px;
+  border-left: 4px solid var(--color-green);
+}
+
+.contatos-info-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.contato-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 200px;
+}
+
+.contato-titulo {
+  font-size: 1.6rem;
+  color: var(--color-green);
+  margin: 0;
+  font-weight: 600;
+  text-align: center;
+}
+
+.contato-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+  color: var(--text-color-dark);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 1.2rem 2rem;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  justify-content: center;
+}
+
+.contato-link:hover {
+  color: var(--color-green);
+  background-color: rgba(0, 191, 99, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contato-icon-minimal {
+  font-size: 2rem;
+}
+
+.newsletter-card {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #f8f9fa;
+  padding: 4rem 4rem;
+  border-radius: 16px;
+  border-left: 4px solid var(--color-green);
+  text-align: center;
+}
+
+.newsletter-card h3 {
+  font-size: 2.8rem;
+  color: var(--color-green);
+  margin-bottom: 1.5rem;
+}
+
+.newsletter-card p {
+  font-size: 1.8rem;
+  color: var(--text-color-main);
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+}
+
+.newsletter-form-minimal {
+  display: flex;
+  gap: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.newsletter-form-minimal input {
+  flex: 1;
+  padding: 1.6rem 2.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 50px;
+  font-size: 1.6rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.newsletter-form-minimal input:focus {
+  outline: none;
+  border-color: var(--color-green);
+}
+
+.btn-newsletter-minimal {
+  padding: 1.6rem 3rem;
+  background-color: var(--color-green);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.btn-newsletter-minimal:hover {
+  background-color: var(--color-line);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 191, 99, 0.3);
+}
+
+.status-message {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--color-green);
+}
+
+/* Responsivo para contatos */
+@media (max-width: 768px) {
+  .contatos-header h2 {
+    font-size: 4rem;
+  }
+  
+  .contatos-lead {
+    font-size: 2rem;
+  }
+  
+  .contatos-info-wrapper {
+    padding: 3rem 2rem;
+  }
+  
+  .contatos-info-list {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .contato-item {
+    min-width: 100%;
+  }
+  
+  .contato-link {
+    width: 100%;
+  }
+  
+  .newsletter-card {
+    padding: 3rem 2rem;
+  }
+  
+  .newsletter-form-minimal {
+    flex-direction: column;
+  }
+  
+  .btn-newsletter-minimal {
+    width: 100%;
+  }
+}
