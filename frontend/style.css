@@ -1751,6 +1751,7 @@ tilos para seção EUDR & LkSG */
   padding: 8rem 0 4rem 0;
   margin-bottom: 10px
 }
+
 .contato-container {
   margin: 0 auto;
   max-width: 1200px;
@@ -1758,13 +1759,12 @@ tilos para seção EUDR & LkSG */
   padding-top: 100px
 }
 
-.contatos-minimal {
-  max-width: 700px;
-  margin: 0 auto;
+.contatos-header {
   text-align: center;
+  margin-bottom: 6rem;
 }
 
-.contatos-minimal h2 {
+.contatos-header h2 {
   font-size: 5rem;
   color: var(--text-color-dark);
   margin-bottom: 2rem;
@@ -1774,61 +1774,104 @@ tilos para seção EUDR & LkSG */
 .contatos-lead {
   font-size: 2.2rem;
   color: var(--text-color-main);
-  margin-bottom: 5rem;
   line-height: 1.6;
 }
 
-.contatos-info-minimal {
-  display: flex;
-  justify-content: center;
+.contatos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  margin-bottom: 6rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contatos-info-card {
+  background-color: #f8f9fa;
+  padding: 4rem 3rem;
+  border-radius: 16px;
+  border-left: 4px solid var(--color-green);
+}
+
+.contatos-info-card h3 {
+  font-size: 2.4rem;
+  color: var(--text-color-dark);
+  margin-bottom: 3rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.contatos-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.contato-item {
+  text-align: center;
+}
+
+.contato-titulo {
+  font-size: 1.6rem;
+  color: var(--text-color-dark);
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.newsletter-card {
+  background-color: #f8f9fa;
+  padding: 4rem 3rem;
+  border-radius: 16px;
+  border-left: 4px solid var(--color-line);
+}
+
+.newsletter-card h3 {
+  font-size: 2.4rem;
+  color: var(--text-color-dark);
+  margin-bottom: 2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.newsletter-card p {
+  font-size: 1.8rem;
+  color: var(--text-color-main);
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+  text-align: center;
 }
 
 .contato-link {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   font-size: 1.8rem;
   color: var(--text-color-dark);
   text-decoration: none;
   transition: all 0.3s ease;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   border-radius: 8px;
+  justify-content: center;
 }
 
 .contato-link:hover {
   color: var(--color-green);
   background-color: rgba(0, 191, 99, 0.05);
+  transform: translateY(-2px);
 }
 
 .contato-icon-minimal {
   font-size: 2.4rem;
 }
 
-.newsletter-minimal {
-  background-color: #f8f9fa;
-  padding: 4rem 4rem;
-  border-radius: 16px;
-  border-left: 4px solid var(--color-green);
-}
-
-.newsletter-minimal p {
-  font-size: 1.8rem;
-  color: var(--text-color-main);
-  margin-bottom: 2.5rem;
-  font-weight: 500;
-}
-
 .newsletter-form-minimal {
   display: flex;
+  flex-direction: column;
   gap: 1.5rem;
-  max-width: 600px;
-  margin: 0 auto;
 }
 
 .newsletter-form-minimal input {
-  flex: 1;
   padding: 1.6rem 2.5rem;
   border: 2px solid #e0e0e0;
   border-radius: 50px;
@@ -1839,12 +1882,12 @@ tilos para seção EUDR & LkSG */
 
 .newsletter-form-minimal input:focus {
   outline: none;
-  border-color: var(--color-green);
+  border-color: var(--color-line);
 }
 
 .btn-newsletter-minimal {
   padding: 1.6rem 3rem;
-  background-color: var(--color-green);
+  background-color: var(--color-line);
   color: white;
   border: none;
   border-radius: 50px;
@@ -1857,16 +1900,40 @@ tilos para seção EUDR & LkSG */
 }
 
 .btn-newsletter-minimal:hover {
-  background-color: var(--color-line);
+  background-color: var(--color-green);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 191, 99, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 208, 250, 0.3);
+}
+
+.status-message {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  color: var(--color-green);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .contatos-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .contatos-header h2 {
+    font-size: 3.5rem;
+  }
+  
+  .contatos-info-card,
+  .newsletter-card {
+    padding: 3rem 2rem;
+  }
 }
 
 /* Footer */
 .footer {
   background-color: #333;
   color: #e0e0e0;
-  padding: 2rem 0;
+  padding: 2rem 0 0 0;
 }
 
 .grid--footer {
