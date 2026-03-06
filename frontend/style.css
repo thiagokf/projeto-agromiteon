@@ -5,11 +5,11 @@
 :root {
   /* Modo Claro */
   --bg-color-main: #f8f9fa;
-  --bg-color-header: #fdf2e9;
-  --bg-color-card: #fdece2;
+  --bg-color-header: #faf3ee;
+  --bg-color-card: #fdf8f1;
   --bg-color-form: #45260a;
   --text-color-main: #444;
-  --text-color-light: #fff;
+  --text-color-light: #ffffff;
   --text-color-dark: #333;
   --color-green: #00BF63;
   --color-line: #00D0FA;
@@ -17,7 +17,89 @@
 }
 
 /* ======================================= */
-/* 2. CONFIGURAÇÕES GERAIS E ESTILOS */
+/* 2. ANIMAÇÕES DE SCROLL */
+/* ======================================= */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+}
+
+.animate-in {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+h2.animate-in {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.eudr-card.animate-in,
+.sobre-area-card.animate-in,
+.solucao-card-compact.animate-in,
+.value-item.animate-in,
+.investimento-item.animate-in,
+.report-item.animate-in {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.eudr-card.animate-in:nth-child(1),
+.sobre-area-card.animate-in:nth-child(1),
+.solucao-card-compact.animate-in:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.eudr-card.animate-in:nth-child(2),
+.sobre-area-card.animate-in:nth-child(2),
+.solucao-card-compact.animate-in:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.eudr-card.animate-in:nth-child(3),
+.sobre-area-card.animate-in:nth-child(3),
+.solucao-card-compact.animate-in:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.eudr-card.animate-in:nth-child(4),
+.sobre-area-card.animate-in:nth-child(4),
+.solucao-card-compact.animate-in:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+/* ======================================= */
+/* 3. CONFIGURAÇÕES GERAIS E ESTILOS */
 /* ======================================= */
 
 * {
@@ -42,12 +124,6 @@ body {
   letter-spacing: -0.01em;
 }
 
-.header-h2 {
-  font-size: 26px;
-  color: var(--color-green);
-  border-top: 2px solid var(--color-green);
-  padding: 16px 32px;
-}
 
 .container {
   margin: 0 auto;
@@ -100,15 +176,33 @@ a:visited {
   color: var(--text-color-dark);
   font-size: 16px;
   font-weight: 500;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  position: relative;
+}
+
+.main-nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-green);
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
 }
 
 .main-nav-link:hover,
 .main-nav-link:active {
-  color: var(--color-line);
+  color: var(--color-green);
+  background-color: rgba(0, 191, 99, 0.08);
 }
 
-
+.main-nav-link:hover::after {
+  width: 60%;
+}
 
 .home:link,
 .home:visited {
@@ -116,34 +210,136 @@ a:visited {
   border-radius: 30px;
   color: var(--text-color-light);
   background-color: var(--color-green);
+  box-shadow: 0 2px 10px rgba(0, 191, 99, 0.3);
+  position: relative;
+  overflow: hidden;
 }
+
+.home::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s, height 0.5s;
+}
+
+.home:hover::before {
+  width: 200px;
+  height: 200px;
+}
+
+.home:hover,
+.home:active {
+  background-color: #00a055;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 191, 99, 0.4);
+}
+
+.home::after {
+  display: none;
+}
+
+/* ======================================= */
+/* 3. SEÇÃO HERO */
+/* ======================================= */
 
 .section-hero {
-  text-align: center;
   background-color: var(--bg-color-header);
   transition: background-color 0.3s ease;
+  padding-top: 0rem;
+  padding-bottom: 8rem;
+  min-height: 85vh;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
-.header-container--inner {
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.hero-left {
+  width: 60rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: center;
 }
-
-
 
 .hero-img {
-  width: 700px;
-  height: 500px;
-  border-radius: 50%;
-  object-fit: cover;
-  overflow: hidden;
-  margin-bottom: 24px;
+  width: 600px;
+  max-width: 700px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
 }
+
+.hero-left .header-h2 {
+  font-size: 2.7rem;
+  color: black;
+  border-top: 2px solid var(--color-green);
+  padding: 16px 32px;
+  text-align: center;
+  margin: 0;
+  max-width: 600px;
+}
+
+.hero-right {
+  padding-top: 1rem;
+  font-family: Montserrat,sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-self: center;
+}
+
+.hero-title {
+  font-size: 4.4rem;
+  line-height: 1.2;
+  color: var(--text-color-dark);
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.hero-description {
+  font-size: 2rem;
+  line-height: 1.7;
+  color: var(--text-color-dark);
+  margin: 0;
+  font-weight: 500;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--color-green);
+}
+
+.hero-description strong {
+  color: var(--color-green);
+  font-size: 2.1rem;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 191, 99, 0.1);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ======================================= */
+/* 4. TIPOGRAFIA E ELEMENTOS GERAIS */
+/* ======================================= */
 
 h1 {
   font-size: 52px;
@@ -215,7 +411,38 @@ p {
   border: none;
   cursor: pointer;
   font-family: inherit;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 191, 99, 0.3);
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 191, 99, 0.4);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 191, 99, 0.3);
 }
 
 .btn--margin-right {
@@ -228,25 +455,37 @@ p {
 .home:visited {
   background-color: var(--color-green);
   color: var(--text-color-light);
+  box-shadow: 0 4px 15px rgba(0, 191, 99, 0.3);
 }
 
 .btn--green:hover,
 .btn--green:active,
 .home:hover,
 .home:active {
-  background-color: var(--color-green);
+  background-color: #00a055;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 191, 99, 0.4);
 }
 
 .btn--white:link,
 .btn--white:visited {
   background-color: var(--text-color-light);
   color: #555;
+  border: 2px solid var(--color-green);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn--white::before {
+  background: rgba(0, 191, 99, 0.1);
 }
 
 .btn--white:hover,
 .btn--white:active {
-  background-color: var(--bg-color-header);
-  box-shadow: inset 0 0 0 3px var(--text-color-light);
+  background-color: var(--text-color-light);
+  color: var(--color-green);
+  border-color: var(--color-green);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 191, 99, 0.2);
 }
 
 .btn--form {
@@ -262,7 +501,7 @@ p {
 }
 
 section {
-  padding: 96px 0;
+  padding: 80px 0;
   min-height: 100vh;
 }
 
@@ -421,7 +660,7 @@ tilos para seção EUDR & LkSG */
 
 .eudr-card {
   background-color: var(--bg-color-card);
-  padding: 4rem 3rem;
+  padding: 3rem 2.5rem;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -464,7 +703,7 @@ tilos para seção EUDR & LkSG */
 
 .eudr-diferencial {
   background: linear-gradient(135deg, var(--color-green) 0%, #00a055 100%);
-  padding: 5rem 4rem;
+  padding: 4rem 3rem;
   border-radius: 16px;
   color: white;
   text-align: center;
@@ -551,7 +790,7 @@ tilos para seção EUDR & LkSG */
   flex-direction: column;
   gap: 2.5rem;
   background-color: #f8f9fa;
-  padding: 4rem 4rem;
+  padding: 3rem 3rem;
   border-radius: 16px;
   border-left: 5px solid var(--color-green);
 }
@@ -660,7 +899,7 @@ tilos para seção EUDR & LkSG */
 
 .sobre-missao {
   background: linear-gradient(135deg, var(--color-green) 0%, #00a055 100%);
-  padding: 4rem 5rem;
+  padding: 3rem 4rem;
   border-radius: 16px;
   text-align: center;
   margin-bottom: 6rem;
@@ -689,7 +928,7 @@ tilos para seção EUDR & LkSG */
 .sobre-specialists-card,
 .sobre-posicionamento-card {
   background-color: var(--bg-color-card);
-  padding: 4rem 3.5rem;
+  padding: 3rem 2.5rem;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
@@ -872,7 +1111,7 @@ tilos para seção EUDR & LkSG */
 /* Estilos para novos blocos de texto profissional */
 .sobre-contexto {
   background-color: #f8f9fa;
-  padding: 4rem 5rem;
+  padding: 3rem 4rem;
   border-radius: 16px;
   margin-bottom: 6rem;
   border-left: 5px solid var(--color-green);
@@ -910,7 +1149,7 @@ tilos para seção EUDR & LkSG */
 
 .eudr-contexto-text {
   background-color: #f8f9fa;
-  padding: 4rem 5rem;
+  padding: 3rem 4rem;
   border-radius: 16px;
   margin-bottom: 5rem;
   border-left: 5px solid var(--color-line);
@@ -977,7 +1216,7 @@ tilos para seção EUDR & LkSG */
 
 .program-header {
   background: linear-gradient(135deg, var(--color-line) 0%, var(--color-green) 100%);
-  padding: 4rem 4rem 3rem 4rem;
+  padding: 3rem 3rem 2.5rem 3rem;
   text-align: center;
   color: white;
   position: relative;
@@ -1013,7 +1252,7 @@ tilos para seção EUDR & LkSG */
 }
 
 .program-content {
-  padding: 4rem 4rem 3rem 4rem;
+  padding: 3rem 3rem 2.5rem 3rem;
 }
 
 .program-section {
@@ -1052,7 +1291,7 @@ tilos para seção EUDR & LkSG */
 
 .program-reports {
   background-color: #f8f9fa;
-  padding: 3rem;
+  padding: 2.5rem;
   border-radius: 12px;
   border-left: 4px solid var(--color-line);
 }
@@ -1394,13 +1633,6 @@ tilos para seção EUDR & LkSG */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
-.solucao-number {
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--color-line);
-  font-family: "Poppins", sans-serif;
-  margin-bottom: 1.5rem;
-}
 
 .solucao-card-compact h4 {
   font-size: 2rem;
@@ -1424,7 +1656,7 @@ tilos para seção EUDR & LkSG */
 }
 
 .solucao-list-compact li {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   line-height: 1.6;
   color: var(--text-color-main);
   margin-bottom: 1rem;
@@ -1476,7 +1708,7 @@ tilos para seção EUDR & LkSG */
 
 .investimentos-body {
   background-color: white;
-  padding: 4rem 4rem 3rem 4rem;
+  padding: 3rem 3rem 2.5rem 3rem;
 }
 
 .investimentos-intro {
@@ -1516,14 +1748,14 @@ tilos para seção EUDR & LkSG */
 }
 
 .investimento-item h5 {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   color: var(--color-green);
   margin: 0 0 0.5rem 0;
   font-weight: 600;
 }
 
 .investimento-item p {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: var(--text-color-main);
   margin: 0;
   line-height: 1.5;
@@ -1631,7 +1863,7 @@ tilos para seção EUDR & LkSG */
 /* Card de destaque (Solução 4) */
 .solucao-card-destaque {
   background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-  padding: 4rem 4rem 3rem 4rem;
+  padding: 3rem 3rem 2.5rem 3rem;
   border-radius: 20px;
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
   margin-top: 4rem;
@@ -2019,7 +2251,7 @@ tilos para seção EUDR & LkSG */
 /* Seção Contatos */
 .contatos-section {
   background-color: white;
-  padding: 8rem 0 4rem 0;
+  padding: 6rem 0 3rem 0;
   margin-bottom: 10px;
 }
 
@@ -2047,7 +2279,7 @@ tilos para seção EUDR & LkSG */
   max-width: 900px;
   margin: 0 auto 6rem auto;
   background-color: #f8f9fa;
-  padding: 4rem 3rem;
+  padding: 3rem 2.5rem;
   border-radius: 16px;
   border-left: 4px solid var(--color-green);
 }
@@ -2106,7 +2338,7 @@ tilos para seção EUDR & LkSG */
   max-width: 700px;
   margin: 0 auto;
   background-color: #f8f9fa;
-  padding: 4rem 4rem;
+  padding: 3rem 3rem;
   border-radius: 16px;
   border-left: 4px solid var(--color-green);
   text-align: center;
@@ -2210,5 +2442,72 @@ tilos para seção EUDR & LkSG */
   
   .btn-newsletter-minimal {
     width: 100%;
+  }
+}
+
+/* Responsivo para hero */
+@media (max-width: 992px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: 3.6rem;
+  }
+  
+  .hero-description {
+    font-size: 1.8rem;
+    padding: 1.8rem 2rem;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+  }
+  
+  .hero-left .header-h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-hero {
+    padding: 6rem 0;
+    min-height: auto;
+  }
+  
+  .hero-content {
+    gap: 3rem;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .hero-description {
+    font-size: 1.7rem;
+    padding: 1.5rem 1.8rem;
+  }
+  
+  .hero-description stro
+  
+  .hero-img {
+    max-width: 350px;
+  }
+  
+  .hero-left .header-h2 {
+    font-size: 1.8rem;
+    padding: 12px 24px;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .hero-buttons .btn {
+    width: 100%;
+    text-align: center;
   }
 }
