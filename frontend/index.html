@@ -104,35 +104,6 @@
             </div>
           </div>
           
-          <script>
-            const areaWords = document.querySelectorAll('.area-word');
-            const dynamicImg = document.getElementById('areas-dynamic-img');
-            const defaultImg = dynamicImg.getAttribute('data-default');
-            
-            areaWords.forEach(word => {
-              word.addEventListener('mouseenter', function() {
-                const imageKey = this.getAttribute('data-image');
-                const newImageSrc = dynamicImg.getAttribute('data-' + imageKey);
-                
-                if (newImageSrc && dynamicImg.src !== newImageSrc) {
-                  dynamicImg.style.opacity = '0';
-                  setTimeout(() => {
-                    dynamicImg.src = newImageSrc;
-                    dynamicImg.style.opacity = '1';
-                  }, 300);
-                }
-              });
-              
-              word.addEventListener('mouseleave', function() {
-                dynamicImg.style.opacity = '0';
-                setTimeout(() => {
-                  dynamicImg.src = defaultImg;
-                  dynamicImg.style.opacity = '1';
-                }, 300);
-              });
-            });
-          </script>
-          
           <div class="sobre-missao">
             <h3>Nossa Missão</h3>
             <p>
@@ -452,7 +423,7 @@
             <p>Receba insights exclusivos sobre compliance e mercados internacionais</p>
             <form class="newsletter-form-minimal" id="newsletter-form">
               <input
-                id="name"
+              id="name"
                 placeholder="seu nome"
                 required/>
               <input
@@ -506,35 +477,7 @@
           </ul>
         </div>
       </div>
-    </footer>
-
-      
-      <script>
-        document.getElementById("newsletter-form").addEventListener("submit", function (event) {
-          event.preventDefault();
-          const email = document.getElementById("email").value;
-          
-          fetch('/newsletter', {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email }),
-          })
-          .then((response) => response.json())
-          .then((data) => {
-            document.getElementById("statusNewsletter").textContent = data.message || "✓ Inscrição realizada com sucesso!";
-            if (data.success) {
-              document.getElementById("newsletter-form").reset();
-            }
-          })
-          .catch((error) => {
-            console.error("Erro:", error);
-            document.getElementById("statusNewsletter").textContent = "✓ Email registrado!";
-            document.getElementById("newsletter-form").reset();
-          });
-        });
-      </script>
-    </footer>
-    
+    </footer>      
     <script src="script.js"></script>
   </body>
 </html>
