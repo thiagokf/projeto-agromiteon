@@ -78,10 +78,10 @@ document.addEventListener('DOMContentLoaded', function() {
   
   if (newsletterForm) {
     newsletterForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const statusDiv = document.getElementById("statusNewsletter");
+    event.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const statusDiv = document.getElementById("statusNewsletter");
       
       fetch('/newsletter', {
         method: "POST",
