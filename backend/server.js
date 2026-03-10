@@ -5,7 +5,7 @@ const path = require('path');
 
 const app = express();
 
-// --- MIDDLEWARES ---
+// middlewares
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../frontend')));
@@ -22,7 +22,7 @@ mongoose.connect(mongoURI)
   .then(() => console.log('✓ Conectado ao MongoDB com sucesso!'))
   .catch(err => console.error('x Erro ao conectar ao MongoDB:', err));
 
-// --- MODELO DE DADOS ---
+// modelo de dados
 const LeadSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
@@ -31,7 +31,7 @@ const LeadSchema = new mongoose.Schema({
 
 const Lead = mongoose.model('Lead', LeadSchema);
 
-// rota p newsletter
+// rota para newsletter
 app.post('/newsletter', async (req, res) => {
     const { name, email } = req.body;
 
