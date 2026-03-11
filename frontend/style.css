@@ -907,7 +907,6 @@ tilos para seção EUDR & LkSG */
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  min-height: 400px;
 }
 
 .sobre-areas-container {
@@ -961,8 +960,7 @@ tilos para seção EUDR & LkSG */
 }
 
 .areas-img {
-  width: 440px;
-  height: 440px;
+  width: 500px;
   object-fit: contain;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -1611,7 +1609,7 @@ tilos para seção EUDR & LkSG */
 }
 
 .filosofia-img {
-  width: 100%;
+  width: 65%;
   max-width: 450px;
   height: auto;
   border-radius: 16px;

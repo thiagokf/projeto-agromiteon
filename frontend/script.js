@@ -1,4 +1,4 @@
-// Animações de scroll suaves
+// Animações de scroll
 document.addEventListener('DOMContentLoaded', function() {
   
   // Configuração do Intersection Observer
