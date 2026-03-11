@@ -15,6 +15,16 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend', 'index.html'));
 });
 
+// Rota temporária para ver os inscritos
+app.get('/admin/leads', async (req, res) => {
+    try {
+        const leads = await Lead.find(); // Busca todos os registros
+        res.json(leads);
+    } catch (error) {
+        res.status(500).send("Erro ao buscar dados");
+    }
+});
+
 // config do mongo
 const mongoURI = 'mongodb+srv://thiagofusco36_db_user:KDKv4eKWhkCRH4m@clusteragromiteon.iasbkf4.mongodb.net/?appName=ClusterAgromiteon'; 
 

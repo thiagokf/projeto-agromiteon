@@ -2353,7 +2353,7 @@ tilos para seção EUDR & LkSG */
 }
 
 .contatos-info-wrapper {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto 6rem auto;
   background-color: #f8f9fa;
   padding: 3rem 2.5rem;
@@ -2363,7 +2363,7 @@ tilos para seção EUDR & LkSG */
 
 .contatos-info-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 3rem;
 }
 
