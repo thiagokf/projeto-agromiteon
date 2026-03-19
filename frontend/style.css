@@ -15,54 +15,27 @@
 }
 
 /* ======================================= */
-/* 2. ANIMAÇÕES DE SCROLL */
+/* 2. ANIMAÇÕES (KEYFRAMES E CLASSES)      */
 /* ======================================= */
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 4px 15px rgba(0, 191, 99, 0.4); }
+  50% { box-shadow: 0 4px 20px rgba(0, 208, 250, 0.6); }
 }
 
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
 }
 
-.animate-on-scroll {
-  opacity: 0;
-}
+.animate-on-scroll { opacity: 0; }
 
-.animate-in {
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-h2.animate-in {
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-
+.animate-in,
 .eudr-card.animate-in,
 .sobre-area-card.animate-in,
 .solucao-card-compact.animate-in,
@@ -72,29 +45,13 @@ h2.animate-in {
   animation: fadeInUp 0.6s ease-out forwards;
 }
 
-.eudr-card.animate-in:nth-child(1),
-.sobre-area-card.animate-in:nth-child(1),
-.solucao-card-compact.animate-in:nth-child(1) {
-  animation-delay: 0.1s;
-}
+h2.animate-in { animation-duration: 0.8s; }
 
-.eudr-card.animate-in:nth-child(2),
-.sobre-area-card.animate-in:nth-child(2),
-.solucao-card-compact.animate-in:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.eudr-card.animate-in:nth-child(3),
-.sobre-area-card.animate-in:nth-child(3),
-.solucao-card-compact.animate-in:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.eudr-card.animate-in:nth-child(4),
-.sobre-area-card.animate-in:nth-child(4),
-.solucao-card-compact.animate-in:nth-child(4) {
-  animation-delay: 0.4s;
-}
+/* Delays das Listas/Cards */
+.eudr-card.animate-in:nth-child(1), .sobre-area-card.animate-in:nth-child(1), .solucao-card-compact.animate-in:nth-child(1) { animation-delay: 0.1s; }
+.eudr-card.animate-in:nth-child(2), .sobre-area-card.animate-in:nth-child(2), .solucao-card-compact.animate-in:nth-child(2) { animation-delay: 0.2s; }
+.eudr-card.animate-in:nth-child(3), .sobre-area-card.animate-in:nth-child(3), .solucao-card-compact.animate-in:nth-child(3) { animation-delay: 0.3s; }
+.eudr-card.animate-in:nth-child(4), .sobre-area-card.animate-in:nth-child(4), .solucao-card-compact.animate-in:nth-child(4) { animation-delay: 0.4s; }
 
 /* ======================================= */
 /* 3. CONFIGURAÇÕES GERAIS E ESTILOS */
@@ -151,6 +108,15 @@ header {
   width: 100%;
 }
 
+.main-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.main-nav {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .main-nav-list {
   list-style: none;
   display: flex;
@@ -159,8 +125,6 @@ header {
   margin: 0;
   padding: 0;
 }
-
-
 
 a:link,
 a:visited {
@@ -195,47 +159,25 @@ a:visited {
 .main-nav-link:hover,
 .main-nav-link:active {
   color: var(--color-green);
-  background-color: rgba(0, 191, 99, 0.08);
 }
 
 .main-nav-link:hover::after {
   width: 60%;
 }
 
-.home:link,
-.home:visited {
-  padding: 0.8rem 1.6rem;
-  border-radius: 30px;
-  color: var(--text-color-light);
-  background-color: var(--color-green);
-  box-shadow: 0 2px 10px rgba(0, 191, 99, 0.3);
-  position: relative;
-  overflow: hidden;
-}
-
 .home::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  transform: translate(-50%, -50%);
-  transition: width 0.5s, height 0.5s;
+  display: none;
 }
 
 .home:hover::before {
-  width: 200px;
-  height: 200px;
+  display: none;
 }
 
 .home:hover,
 .home:active {
-  background-color: #00a055;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 191, 99, 0.4);
+  background-color: transparent;
+  transform: none;
+  box-shadow: none;
 }
 
 .home::after {
@@ -350,8 +292,8 @@ a:visited {
 }
 
 .hero-img {
-  width: 600px;
-  max-width: 700px;
+  width: 100%;
+  max-width: 600px;
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
@@ -519,24 +461,6 @@ p {
   margin-right: 1.6rem !important;
 }
 
-.btn--green:link,
-.btn--green:visited,
-.home:link,
-.home:visited {
-  background-color: var(--color-green);
-  color: var(--text-color-light);
-  box-shadow: 0 4px 15px rgba(0, 191, 99, 0.3);
-}
-
-.btn--green:hover,
-.btn--green:active,
-.home:hover,
-.home:active {
-  background-color: #00a055;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 191, 99, 0.4);
-}
-
 .btn--white:link,
 .btn--white:visited {
   background-color: var(--text-color-light);
@@ -568,17 +492,11 @@ section {
   min-height: 100vh;
 }
 
-
-
 .grid-3-cols {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 80px;
 }
-
-
-
-
 
 .footer-list {
   font-size: 14px;
@@ -610,27 +528,36 @@ section {
   padding: 0;
 }
 
-
-
 .copyright {
   font-size: 14px;
   color: #767676;
 }
 
-/* PARA TELAS GRANDES (LAPTOPS, DESKTOPS) */
+/* Responsividade para laptops */
 @media (max-width: 1200px) {
   html {
     font-size: 56.25%;
   }
 
   .container {
-    padding: 0 6.4rem;
+    padding: 0 3.2rem;
   }
 
-
-
   .main-nav {
-    justify-content: center;
+    justify-content: space-between;
+  }
+  
+  .hero-content {
+    gap: 4rem;
+  }
+  
+  .hero-left {
+    width: 100%;
+  }
+  
+  .hero-img {
+    width: 100%;
+    max-width: 500px;
   }
 }
 
@@ -644,8 +571,37 @@ section {
     margin-bottom: 16px;
   }
 
+  header {
+    padding: 0 2rem;
+  }
+
   .main-nav {
-    padding: 1.2rem 3.2rem;
+    display: flex !important;
+    flex-direction: row;
+    height: auto;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+  
+  .main-nav-list {
+    display: flex !important;
+    flex-direction: row;
+    gap: 1.5rem;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  
+  .main-nav-link:link,
+  .main-nav-link:visited {
+    font-size: 14px;
+    padding: 0.6rem 1rem;
+    white-space: nowrap;
+  }
+  
+  .btn-newsletter-nav {
+    font-size: 13px;
+    padding: 0.7rem 1.2rem;
+    white-space: nowrap;
   }
 
   h1 {
@@ -656,36 +612,79 @@ section {
     font-size: 36px;
   }
 
-
-
   .grid-3-cols {
     grid-template-columns: 1fr 1fr;
   }
+  
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .hero-left {
+    align-items: center;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+  }
+  
+  .contatos-info-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
 }
 
-/* PARA TELAS PEQUENAS (CELULARES GRANDES) */
+/* Responsivo para celulares grandes) */
 @media (max-width: 768px) {
   html {
-    font-size: 48%;
+    font-size: 55%;
   }
 
+  body {
+    padding-top: 70px;
+  }
 
-
-  .main-nav-list {
-    gap: 1.6rem;
+  header {
+    position: fixed;
+    padding: 0 1rem;
   }
 
   .main-nav {
-    justify-content: center;
-    display: none;
+    display: flex !important;
+    flex-direction: row;
+    gap: 0.8rem;
+    padding: 1rem 0;
+    height: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .main-nav-list {
+    display: flex !important;
+    flex-direction: row;
+    gap: 0.8rem;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
   }
 
   .main-nav-link:link,
   .main-nav-link:visited {
-    font-size: 16px;
+    font-size: 13px;
+    padding: 0.5rem 0.8rem;
+    white-space: nowrap;
   }
-
-
+  
+  .btn-newsletter-nav {
+    font-size: 12px;
+    padding: 0.6rem 1rem;
+    white-space: nowrap;
+  }
+  
+  .newsletter-icon {
+    font-size: 12px;
+  }
 
   .grid-3-cols {
     grid-template-columns: 1fr;
@@ -694,18 +693,140 @@ section {
   .btn--margin-right {
     margin-bottom: 24px;
   }
+  
+  .container {
+    padding: 0 2rem;
+  }
+  
+  section {
+    padding: 60px 0;
+    min-height: auto;
+  }
+  
+  h2 {
+    font-size: 32px;
+  }
+  
+  .hero-img {
+    max-width: 100%;
+  }
+  
+  .hero-left .header-h2 {
+    font-size: 2rem;
+  }
+  
+  .contatos-info-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .newsletter-form-minimal {
+    flex-direction: column;
+  }
 }
 
-/* PARA TELAS PEQUENAS (CELULARES) */
+/* Responsivo para celulares pequenos) */
 @media (max-width: 576px) {
+  html {
+    font-size: 52%;
+  }
+  
+  .container {
+    padding: 0 1.6rem;
+  }
+  
+  header {
+    padding: 0 0.8rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  
+  .main-nav {
+    display: flex !important;
+    flex-direction: row;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    min-width: max-content;
+  }
+  
+  .main-nav-list {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+  }
+  
+  .main-nav-link:link,
+  .main-nav-link:visited {
+    font-size: 12px;
+    padding: 0.5rem 0.7rem;
+    white-space: nowrap;
+  }
+  
+  .btn-newsletter-nav {
+    font-size: 11px;
+    padding: 0.5rem 0.8rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  
+  h1 {
+    font-size: 32px;
+  }
+  
+  h2 {
+    font-size: 28px;
+  }
+  
+  p {
+    font-size: 18px;
+  }
+  
+  .hero-left .header-h2 {
+    font-size: 1.8rem;
+    padding: 10px 20px;
+  }
+  
+  .hero-description {
+    font-size: 1.6rem;
+    padding: 1.5rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .hero-buttons .btn {
+    width: 100%;
+  }
+  
   .footer-list {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
+  }
+  
+  .eudr-card,
+  .sobre-specialists-card,
+  .sobre-posicionamento-card,
+  .solucao-card-compact {
+    padding: 2rem 1.5rem;
+  }
+  
+  .contatos-header h2 {
+    font-size: 3.2rem;
+  }
+  
+  .newsletter-card {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .newsletter-card h3 {
+    font-size: 2.2rem;
   }
 }
-/* Es
-tilos para seção EUDR & LkSG */
+/* Estilos para seção EUDR & LkSG */
 .eudr-intro {
   text-align: center;
   font-size: 2.2rem;
@@ -797,39 +918,6 @@ tilos para seção EUDR & LkSG */
   margin-top: 3rem;
 }
 
-/* Responsivo para tablets */
-@media (max-width: 992px) {
-  .eudr-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-  
-  .eudr-intro {
-    font-size: 2rem;
-  }
-  
-  .eudr-card h3 {
-    font-size: 2.8rem;
-  }
-}
-
-/* Responsivo para celulares */
-@media (max-width: 768px) {
-  .eudr-diferencial {
-    padding: 3rem 2rem;
-  }
-  
-  .eudr-diferencial h3 {
-    font-size: 2.8rem;
-  }
-  
-  .eudr-diferencial p {
-    font-size: 1.8rem;
-  }
-}
-
-
-/* Estilos melhorados para seção Sobre */
 .sobre-intro {
   text-align: center;
   font-size: 2.4rem;
@@ -946,7 +1034,7 @@ tilos para seção EUDR & LkSG */
 }
 
 .areas-img {
-  width: 500px;
+  width: 460px;
   object-fit: contain;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -2202,7 +2290,7 @@ tilos para seção EUDR & LkSG */
   color: var(--color-green);
 }
 
-/* Responsividade para telas menores */
+/* Responsivo para celulares */
 @media (max-width: 768px) {
   .contatos-grid {
     grid-template-columns: 1fr;
@@ -2570,4 +2658,84 @@ tilos para seção EUDR & LkSG */
     width: 100%;
     text-align: center;
   }
+}
+
+/* Estilo para o ícone Home no nav */
+.nav-home-icon {
+  height: 57px;
+  width: auto;
+  display: block;
+  transition: transform 0.3s ease;
+  padding: 4px;
+  background-color: rgba(147, 255, 156, 0.322);
+  border-radius: 50%;
+}
+
+.main-nav-link.home {
+  background-color: transparent;
+  padding: 0.4rem;
+}
+
+.main-nav-link.home:hover {
+  background-color: transparent;
+}
+
+.main-nav-link.home:hover .nav-home-icon {
+  transform: scale(1.25);
+}
+
+/* Responsividade geral */
+
+/* (1200px) */
+@media (max-width: 1200px) {
+  html { font-size: 56.25%; }
+}
+
+/* (992px) */
+@media (max-width: 992px) {
+  html { font-size: 50%; }
+  
+  .hero-content, .sobre-intro-container, .sobre-areas-container, 
+  .eudr-grid, .sobre-dual-grid, .filosofia-container, 
+  .solucoes-grid-3, .investimentos-grid { 
+    grid-template-columns: 1fr; 
+    text-align: center; 
+  }
+
+  .hero-left, .hero-buttons, .contatos-info-list { justify-content: center; }
+  
+  .contatos-info-list { grid-template-columns: repeat(2, 1fr); }
+
+  .grid-3-cols, .filosofia-values { grid-template-columns: 1fr 1fr; }
+}
+
+/* (768px) */
+@media (max-width: 768px) {
+  section { padding: 60px 0; }
+  
+  header { padding: 0 1rem; }
+  
+  .main-nav { overflow-x: auto; padding: 1rem 0; }
+  
+  .hero-title { font-size: 3.2rem; }
+  
+  .contatos-info-list { grid-template-columns: 1fr; }
+  
+  .newsletter-form-minimal { flex-direction: column; }
+  
+  .hero-buttons .btn { width: 100%; }
+
+  .grid-3-cols, .filosofia-values, .reports-grid { grid-template-columns: 1fr; }
+}
+
+/*(576px) */
+@media (max-width: 576px) {
+  h1 { font-size: 3.2rem; }
+  h2 { font-size: 2.8rem; }
+  
+  .footer-list { flex-direction: column; align-items: center; gap: 1.6rem; }
+  
+  .sobre-areas-grid { grid-template-columns: 1fr; }
+
+  .contato-link { flex-direction: column; }
 }
