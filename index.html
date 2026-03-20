@@ -31,7 +31,7 @@
           <li><a class="main-nav-link" href="#filosofia">Filosofia</a></li>
           <li><a class="main-nav-link" href="#contatos">Contatos</a></li>
         </ul>
-        <a href="#contatos" class="btn-newsletter-nav">
+        <a href="#newsletter" class="btn-newsletter-nav">
           <span class="newsletter-icon">✉</span>
           Assine a nossa Newsletter
         </a>
@@ -81,11 +81,11 @@
                 Com operação entre Europa e Brasil, atuamos na interseção entre:
               </p>
               <p class="sobre-areas-interactive">
-                <span class="area-word" data-image="legislacao">Legislação</span> <br>
-                <span class="area-word" data-image="cadeias">Cadeias de Suprimentos</span> 
-                <span class="area-word" data-image="rastreabilidade">Rastreabilidade</span> 
-                <span class="area-word" data-image="inteligencia">Inteligência de Mercado</span> 
-                <span class="area-word" data-image="investimentos">Investimentos</span> 
+                <span class="area-word">Legislação</span> <br>
+                <span class="area-word">Cadeias de Suprimentos</span> 
+                <span class="area-word">Rastreabilidade</span> 
+                <span class="area-word">Inteligência de Mercado</span> 
+                <span class="area-word">Investimentos</span> 
               </p>
               <p></p>
             </div>
@@ -93,15 +93,9 @@
             <div class="sobre-intro-image">
               <img
                 id="areas-dynamic-img"
-                src="img/intro-imgs/agro.jpeg"
+                src="img/agro.jpeg"
                 alt="Agromiteon - Intelligence for Global Agribusiness"
                 class="areas-img"
-                data-default="img/intro-imgs/agro.jpeg"
-                data-legislacao="img/intro-imgs/legislacao.jpg"
-                data-cadeias="img/intro-imgs/cadeias.webp"
-                data-rastreabilidade="img/intro-imgs/rastreabilidade.webp"
-                data-inteligencia="img/intro-imgs/inteligencia.webp"
-                data-investimentos="img/intro-imgs/investimentos.webp"
               />
             </div>
           </div>
@@ -198,7 +192,7 @@
             
             <div class="program-content">
               <div class="program-section">
-                <h4>O que está incluído:</h4>
+                <h4>O que está incluso:</h4>
                 <ul class="program-list">
                   <li><span class="check-icon-program">✓</span> Estruturação completa de compliance EUDR & LkSG</li>
                   <li><span class="check-icon-program">✓</span> Suporte técnico contínuo e prioritário</li>
@@ -363,7 +357,7 @@
             <div class="contatos-info-list">
               <div class="contato-item">
                 <h4 class="contato-titulo">Email</h4>
-                <a class="contato-link">
+                <a href="https://mail.google.com/mail/?view=cm&to=contact@internationalagromiteon.com" target="_blank" class="contato-link">
                   <span class="contato-icon-minimal">
                     <svg 
                     class="features-icon footer-icon"
@@ -423,7 +417,7 @@
             </div>
           </div>
           
-          <div class="newsletter-card">
+          <div id="newsletter" class="newsletter-card">
             <h3>Assine a nossa <strong>Newsletter</strong></h3>
             <p>Receba insights exclusivos sobre compliance e mercados internacionais</p>
             <form class="newsletter-form-minimal" id="newsletter-form">
@@ -437,7 +431,10 @@
                 placeholder="seu@email.com"
                 required
               />
-              <button type="submit" class="btn-newsletter-minimal">Assinar Newsletter</button>
+              <div class="checkbox-newsletter">
+              <input type="checkbox" id="checkbox-newsletter" name="checkbox-newsletter" value="ativo"> <label for="checkbox-newsletter">Quero receber novidades, atualizações e insights exclusivos da Agromiteon por e-mail.</label><br>
+              </div>
+              <button type="submit" class="btn-newsletter-minimal" id="btn-assinar" disabled>Assinar Newsletter</button>
             </form>
             <div id="statusNewsletter" class="status-message"></div>
           </div>

@@ -42,39 +42,26 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(el);
   });
 
-  // Interação com imagens dinâmicas na seção Sobre
-  const areaWords = document.querySelectorAll('.area-word');
-  const dynamicImg = document.getElementById('areas-dynamic-img');
-  
-  if (dynamicImg) {
-    const defaultImg = dynamicImg.getAttribute('data-default');
-    
-    areaWords.forEach(word => {
-      word.addEventListener('mouseenter', function() {
-        const imageKey = this.getAttribute('data-image');
-        const newImageSrc = dynamicImg.getAttribute('data-' + imageKey);
-        
-        if (newImageSrc && dynamicImg.src !== newImageSrc) {
-          dynamicImg.style.opacity = '0';
-          setTimeout(() => {
-            dynamicImg.src = newImageSrc;
-            dynamicImg.style.opacity = '1';
-          }, 300);
-        }
-      });
-      
-      word.addEventListener('mouseleave', function() {
-        dynamicImg.style.opacity = '0';
-        setTimeout(() => {
-          dynamicImg.src = defaultImg;
-          dynamicImg.style.opacity = '1';
-        }, 300);
-      });
-    });
-  }
-
   // Formulário de Newsletter
   const newsletterForm = document.getElementById("newsletter-form");
+  const checkbox = document.getElementById("checkbox-newsletter");
+  const btnAssinar = document.getElementById("btn-assinar");
+  const inputName = document.getElementById("name");
+  const inputEmail = document.getElementById("email");
+
+  // Verifica se o botão deve ser habilitado
+  function verificarFormulario() {
+    const nomePreenchido = inputName && inputName.value.trim() !== "";
+    const emailPreenchido = inputEmail && inputEmail.value.trim() !== "";
+    const checkboxMarcado = checkbox && checkbox.checked;
+    btnAssinar.disabled = !(nomePreenchido && emailPreenchido && checkboxMarcado);
+  }
+
+  if (checkbox && btnAssinar && inputName && inputEmail) {
+    checkbox.addEventListener("change", verificarFormulario);
+    inputName.addEventListener("input", verificarFormulario);
+    inputEmail.addEventListener("input", verificarFormulario);
+  }
   
   if (newsletterForm) {
     newsletterForm.addEventListener("submit", function (event) {
