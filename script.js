@@ -88,11 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email }),
       })
-      .then((response) => {
-        if (!response.ok) {
-          return response.json().then(err => {throw err; });
-        }
-        response.json()})
+      .then((response) => response.json())
       .then((data) => {
         document.getElementById("statusNewsletter").textContent = data.message;
         if (data.success) {
