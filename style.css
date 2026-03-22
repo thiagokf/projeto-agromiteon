@@ -11,7 +11,6 @@
   --text-color-dark: #333;
   --color-green: #00BF63;
   --color-line: #00D0FA;
-  --color-shadow: rgba(0, 0, 0, 0.07);
 }
 
 /* ======================================= */
@@ -1968,6 +1967,9 @@ section {
   .investimentos-body {
     padding: 3rem 3rem 2.5rem 3rem;
   }
+    .investimento-item h5{
+    text-align: start;
+  }
 }
 
 /* Responsivo para celulares */
@@ -2002,6 +2004,7 @@ section {
   
   .investimento-item h5 {
     font-size: 1.6rem;
+    text-align: start;
   }
   
   .investimento-item p {
