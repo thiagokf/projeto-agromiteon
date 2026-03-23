@@ -63,13 +63,21 @@ document.addEventListener('DOMContentLoaded', function() {
     inputEmail.addEventListener("input", verificarFormulario);
   }
   
+  // Se comunica com o servidor e faz a assinatura do usuario
   if (newsletterForm) {
     newsletterForm.addEventListener("submit", function (event) {
     event.preventDefault();
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
+    const btnAssinar = document.getElementById("btn-assinar");
     const statusDiv = document.getElementById("statusNewsletter");
-      
+    
+    btnAssinar.disable = true;
+    btnAssinar.textContent = "Enviando..."
+    statusDiv.textContent = "Fazendo assinatura! Aguarde...";
+    statusDiv.style.color = "gray"
+
+    //https://agromiteon-server.onrender.com/newsletter
       fetch('https://agromiteon-server.onrender.com/newsletter', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -77,19 +85,22 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       .then((response) => response.json())
       .then((data) => {
-        document.getElementById("statusNewsletter").textContent = data.message;
+        statusDiv.textContent = data.message;
         if (data.success) {
           statusDiv.textContent = data.message || "✓ Inscrição realizada com sucesso!";
           document.getElementById("newsletter-form").reset();
-          document.getElementById("statusNewsletter").style.color = "green";
+          statusDiv.style.color = "green";
         } else {
-          document.getElementById("statusNewsletter").style.color = "orange";
+          statusDiv.style.color = "orange"
         }
       })
       .catch((error) => {
         console.error("Erro:", error);
+        statusDiv.style.color = "red"
         statusDiv.textContent = "Erro ao registrar. Tente novamente mais tarde.";
       });
+      btnAssinar.disable = false;
+      btnAssinar.textContent = "Assinar Newsletter";
     });
   }
 });
