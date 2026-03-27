@@ -99,8 +99,8 @@ document.addEventListener('DOMContentLoaded', function() {
         statusDiv.style.color = "red"
         statusDiv.textContent = "Erro ao registrar. Tente novamente mais tarde.";
       });
-      btnAssinar.disable = false;
-      btnAssinar.textContent = "Assinar Newsletter";
     });
+    btnAssinar.disable = false;
+    btnAssinar.textContent = "Assinar Newsletter";
   }
 });
