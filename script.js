@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnAssinar = document.getElementById("btn-assinar");
     const statusDiv = document.getElementById("statusNewsletter");
     
-    btnAssinar.disable = true;
+    btnAssinar.disabled = true;
     btnAssinar.textContent = "Enviando..."
     statusDiv.textContent = "Fazendo assinatura! Aguarde...";
     statusDiv.style.color = "gray"
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
         statusDiv.style.color = "red"
         statusDiv.textContent = "Erro ao registrar. Tente novamente mais tarde.";
       });
-      btnAssinar.disable = false;
+      btnAssinar.disabled = false;
       btnAssinar.textContent = "Assinar Newsletter";
     });
   }
