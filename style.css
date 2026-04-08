@@ -1,6 +1,4 @@
-/* ======================================= */
-/* 1. VARIÁVEIS CSS PARA TEMAS */
-/* ======================================= */
+/* variaveis */
 
 :root {
   --bg-color-main: #f8f9fa;
@@ -13,9 +11,7 @@
   --color-line: #00D0FA;
 }
 
-/* ======================================= */
-/* 2. ANIMAÇÕES (KEYFRAMES E CLASSES)      */
-/* ======================================= */
+/* Animações*/
 
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(30px); }
@@ -52,9 +48,7 @@ h2.animate-in { animation-duration: 0.8s; }
 .eudr-card.animate-in:nth-child(3), .sobre-area-card.animate-in:nth-child(3), .solucao-card-compact.animate-in:nth-child(3) { animation-delay: 0.3s; }
 .eudr-card.animate-in:nth-child(4), .sobre-area-card.animate-in:nth-child(4), .solucao-card-compact.animate-in:nth-child(4) { animation-delay: 0.4s; }
 
-/* ======================================= */
-/* 3. CONFIGURAÇÕES GERAIS E ESTILOS */
-/* ======================================= */
+/* Config geral de estilo */
 
 * {
   padding: 0;
@@ -99,6 +93,65 @@ header {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+section {
+  padding: 80px 0;
+  min-height: 100vh;
+}
+
+
+h1 {
+  font-size: 52px;
+  margin-bottom: 32px;
+  line-height: 1.05;
+  color: var(--text-color-main);
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 44px;
+  margin-bottom: 32px;
+  position: relative;
+  display: inline-block;
+  color: var(--text-color-main);
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background-color: var(--color-green);
+  margin: 0 auto;
+  margin-top: 6px;
+  border-radius: 2px;
+}
+
+h3 {
+  margin-bottom: 24px;
+  font-size: 24px;
+  color: var(--text-color-main);
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h4 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 48px;
+  color: var(--text-color-main);
+}
+
+/* nav */
 .main-nav {
   display: flex;
   justify-content: space-between;
@@ -164,6 +217,7 @@ a:visited {
   width: 60%;
 }
 
+/* botão home */
 .home::before {
   display: none;
 }
@@ -183,7 +237,7 @@ a:visited {
   display: none;
 }
 
-/* Botão Newsletter no Nav */
+/* botão Newsletter */
 .btn-newsletter-nav {
   display: inline-flex;
   align-items: center;
@@ -259,9 +313,7 @@ a:visited {
   transform: scale(1.2);
 }
 
-/* ======================================= */
 /* Section Hero */
-/* ======================================= */
 
 .section-hero {
   background-color: var(--bg-color-header);
@@ -352,62 +404,6 @@ a:visited {
   flex-wrap: wrap;
 }
 
-/* ======================================= */
-/* 4. TIPOGRAFIA E ELEMENTOS GERAIS */
-/* ======================================= */
-
-h1 {
-  font-size: 52px;
-  margin-bottom: 32px;
-  line-height: 1.05;
-  color: var(--text-color-main);
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-h2 {
-  font-size: 44px;
-  margin-bottom: 32px;
-  position: relative;
-  display: inline-block;
-  color: var(--text-color-main);
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-h2::after {
-  content: "";
-  display: block;
-  width: 40px;
-  height: 3px;
-  background-color: var(--color-green);
-  margin: 0 auto;
-  margin-top: 6px;
-  border-radius: 2px;
-}
-
-h3 {
-  margin-bottom: 24px;
-  font-size: 24px;
-  color: var(--text-color-main);
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-
-h4 {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-}
-p {
-  font-size: 20px;
-  line-height: 1.6;
-  margin-bottom: 48px;
-  color: var(--text-color-main);
-}
-
 .btn,
 .btn:link,
 .btn:visited {
@@ -486,11 +482,6 @@ p {
   color: #555;
 }
 
-section {
-  padding: 80px 0;
-  min-height: 100vh;
-}
-
 .grid-3-cols {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -560,7 +551,7 @@ section {
   }
 }
 
-/* PARA TELAS MÉDIAS (TABLETS) */
+/* Responsivo para telas medias */
 @media (max-width: 992px) {
   html {
     font-size: 50%;
@@ -618,12 +609,26 @@ section {
   .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 4rem;
   }
-  
+
+  .hero-title {
+    font-size: 3.6rem;
+  }
+
+  .hero-description {
+    font-size: 1.8rem;
+    padding: 1.8rem 2rem;
+  }
+
   .hero-left {
     align-items: center;
   }
   
+  .hero-left .header-h2 {
+    font-size: 2rem;
+  }
+
   .hero-buttons {
     justify-content: center;
   }
@@ -634,7 +639,7 @@ section {
   }
 }
 
-/* Responsivo para celulares grandes) */
+/* Responsivo para telas pequenas*/
 @media (max-width: 768px) {
   html {
     font-size: 55%;
@@ -705,9 +710,44 @@ section {
   h2 {
     font-size: 32px;
   }
-  
+
+  .section-hero {
+    padding: 6rem 0;
+    min-height: auto;
+  }
+
+  .hero-content {
+    gap: 3rem;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+    .hero-description {
+    font-size: 1.7rem;
+    padding: 1.5rem 1.8rem;
+  }
+
+  .hero-description stro
+
   .hero-img {
-    max-width: 100%;
+    max-width: 350px;
+  }
+
+  .hero-left .header-h2 {
+    font-size: 1.8rem;
+    padding: 12px 24px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .hero-buttons .btn {
+    width: 100%;
+    text-align: center;
   }
   
   .hero-left .header-h2 {
@@ -723,7 +763,6 @@ section {
   }
 }
 
-/* Responsivo para celulares pequenos) */
 @media (max-width: 576px) {
   html {
     font-size: 52%;
@@ -734,7 +773,7 @@ section {
   }
   
   header {
-    padding: 0 0.8rem;
+    padding: 0 1rem;
     overflow-x: auto;
     overflow-y: hidden;
   }
@@ -825,7 +864,8 @@ section {
     font-size: 2.2rem;
   }
 }
-/* Estilos para seção EUDR & LkSG */
+
+/* seção EUDR & LkSG */
 .eudr-intro {
   text-align: center;
   font-size: 2.2rem;
@@ -1133,7 +1173,7 @@ section {
   flex-shrink: 0;
 }
 
-/* Responsivo para tablets */
+/* Responsivo para telas medias */
 @media (max-width: 992px) {
   .sobre-intro-container {
     grid-template-columns: 1fr;
@@ -1185,9 +1225,23 @@ section {
   .sobre-missao p {
     font-size: 2rem;
   }
+
+    .sobre-contexto,
+  .eudr-contexto-text {
+    padding: 3rem 3.5rem;
+  }
+  
+  .sobre-contexto h3 {
+    font-size: 2.4rem;
+  }
+  
+  .sobre-contexto p,
+  .eudr-contexto-text p {
+    font-size: 1.8rem;
+  }
 }
 
-/* Responsivo para celulares */
+/* Responsivo para telas pequenas */
 @media (max-width: 768px) {
   .sobre-intro-text {
     padding: 2.5rem 2rem;
@@ -1236,6 +1290,24 @@ section {
   .sobre-posicionamento-card {
     padding: 3rem 2.5rem;
   }
+
+  .sobre-contexto,
+  .eudr-contexto-text {
+    padding: 2.5rem 2rem;
+  }
+  
+  .sobre-contexto h3 {
+    font-size: 2.2rem;
+  }
+  
+  .sobre-contexto p,
+  .eudr-contexto-text p {
+    font-size: 1.7rem;
+  }
+  
+  .posicionamento-extra p {
+    font-size: 1.6rem;
+  }
 }
 
 @media (max-width: 576px) {
@@ -1256,7 +1328,6 @@ section {
   }
 }
 
-/* Estilos para novos blocos de texto profissional */
 .sobre-contexto {
   background-color: #f8f9fa;
   padding: 3rem 4rem;
@@ -1313,46 +1384,7 @@ section {
 .eudr-contexto-text p:last-child {
   margin-bottom: 0;
 }
-
-/* Responsivo para tablets */
-@media (max-width: 992px) {
-  .sobre-contexto,
-  .eudr-contexto-text {
-    padding: 3rem 3.5rem;
-  }
-  
-  .sobre-contexto h3 {
-    font-size: 2.4rem;
-  }
-  
-  .sobre-contexto p,
-  .eudr-contexto-text p {
-    font-size: 1.8rem;
-  }
-}
-
-/* Responsivo para celulares */
-@media (max-width: 768px) {
-  .sobre-contexto,
-  .eudr-contexto-text {
-    padding: 2.5rem 2rem;
-  }
-  
-  .sobre-contexto h3 {
-    font-size: 2.2rem;
-  }
-  
-  .sobre-contexto p,
-  .eudr-contexto-text p {
-    font-size: 1.7rem;
-  }
-  
-  .posicionamento-extra p {
-    font-size: 1.6rem;
-  }
-}
-
-/* Estilos para o Compliance Program Card */
+/* Compliance Program Card */
 .compliance-program-card {
   background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
   border-radius: 20px;
@@ -1530,7 +1562,7 @@ section {
   transform: translateY(-1px);
 }
 
-/* Responsivo para tablets */
+/* Responsivo para telas medias */
 @media (max-width: 992px) {
   .reports-grid {
     grid-template-columns: 1fr;
@@ -1549,7 +1581,7 @@ section {
   }
 }
 
-/* Responsivo para celulares */
+/* Responsivo para telas pequenas */
 @media (max-width: 768px) {
   .compliance-program-card {
     margin-top: 4rem;
@@ -1592,7 +1624,7 @@ section {
   }
 }
 
-/* Estilos para seção Filosofia */
+/* seção Filosofia */
 .filosofia-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1694,7 +1726,7 @@ section {
   transform: scale(1.05);
 }
 
-/* Responsivo para tablets */
+/* Responsivo para telas medias */
 @media (max-width: 992px) {
   .filosofia-container {
     grid-template-columns: 1fr;
@@ -1718,7 +1750,7 @@ section {
   }
 }
 
-/* Responsivo para celulares */
+/* Responsivo para telas pequenas */
 @media (max-width: 768px) {
   .filosofia-text h3 {
     font-size: 2.4rem;
@@ -1750,7 +1782,7 @@ section {
   }
 }
 
-/* Estilos para seção Soluções - Redesign */
+/* seção Soluções*/
 .solucoes-intro {
   text-align: center;
   font-size: 2rem;
@@ -1820,7 +1852,7 @@ section {
   font-weight: bold;
 }
 
-/* Card de Investimentos em destaque */
+/* Card de Investimentos*/
 .solucao-investimentos {
   background: linear-gradient(135deg, var(--color-green) 0%, var(--color-line) 100%);
   border-radius: 20px;
@@ -1945,7 +1977,7 @@ section {
   box-shadow: 0 10px 30px rgba(0, 191, 99, 0.4);
 }
 
-/* Responsivo para tablets */
+/* Responsivo para telas medias */
 @media (max-width: 992px) {
   .solucoes-grid-3 {
     grid-template-columns: 1fr;
@@ -1972,7 +2004,7 @@ section {
   }
 }
 
-/* Responsivo para celulares */
+/* Responsivo para telas pequenas */
 @media (max-width: 768px) {
   .solucao-card-compact {
     padding: 2.5rem 2rem;
@@ -2012,121 +2044,7 @@ section {
   }
 }
 
-/* Card de destaque (Solução 4) */
-.solucao-card-destaque {
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-  padding: 3rem 3rem 2.5rem 3rem;
-  border-radius: 20px;
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
-  margin-top: 4rem;
-  border: 3px solid var(--color-green);
-  position: relative;
-  overflow: hidden;
-}
-
-.solucao-card-destaque::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  background: linear-gradient(90deg, var(--color-green) 0%, var(--color-line) 100%);
-}
-
-.destaque-badge {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--color-green) 0%, var(--color-line) 100%);
-  color: white;
-  padding: 0.8rem 2rem;
-  border-radius: 30px;
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  margin-bottom: 2rem;
-  text-transform: uppercase;
-}
-
-.solucao-card-destaque h3 {
-  font-size: 3.4rem;
-  color: var(--color-green);
-  margin-bottom: 2rem;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.solucao-text-destaque {
-  font-size: 2.1rem;
-  line-height: 1.7;
-  color: var(--text-color-main);
-  margin-bottom: 3rem;
-  font-weight: 500;
-}
-
-.destaque-content {
-  display: grid;
-  gap: 3rem;
-}
-
-.destaque-footer {
-  background: linear-gradient(135deg, rgba(0, 191, 99, 0.1), rgba(0, 208, 250, 0.1));
-  padding: 2.5rem 3rem;
-  border-radius: 12px;
-  border-left: 4px solid var(--color-green);
-  margin-top: 2rem;
-}
-
-.destaque-footer p {
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--text-color-dark);
-  margin: 0;
-  line-height: 1.6;
-}
-
-/* Responsivo para tablets */
-@media (max-width: 992px) {
-  .solucao-card-destaque {
-    padding: 3rem 3rem 2.5rem 3rem;
-  }
-  
-  .solucao-card-destaque h3 {
-    font-size: 3rem;
-  }
-  
-  .solucao-text-destaque {
-    font-size: 1.9rem;
-  }
-  
-  .destaque-footer p {
-    font-size: 1.9rem;
-  }
-}
-
-/* Responsivo para celulares */
-@media (max-width: 768px) {
-  .solucao-card-destaque {
-    padding: 2.5rem 2rem 2rem 2rem;
-    margin-top: 3rem;
-  }
-  
-  .solucao-card-destaque h3 {
-    font-size: 2.6rem;
-  }
-  
-  .solucao-text-destaque {
-    font-size: 1.8rem;
-  }
-  
-  .destaque-footer {
-    padding: 2rem 2rem;
-  }
-  
-  .destaque-footer p {
-    font-size: 1.8rem;
-  }
-}
-
+/* seção contatos */
 .contatos-section {
   background-color: white;
   padding: 8rem 0 4rem 0;
@@ -2143,6 +2061,8 @@ section {
 .contatos-header {
   text-align: center;
   margin-bottom: 6rem;
+  max-width: 800px;
+  margin: 0 auto 5rem auto;
 }
 
 .contatos-header h2 {
@@ -2182,37 +2102,56 @@ section {
 }
 
 .contatos-info-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
 }
 
+.contatos-info-wrapper {
+  max-width: 1200px;
+  margin: 0 auto 6rem auto;
+  background-color: #f8f9fa;
+  padding: 3rem 2.5rem;
+  border-radius: 16px;
+  border-left: 4  px solid var(--color-green);
+}
+
 .contato-item {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 200px;
 }
 
 .contato-titulo {
   font-size: 1.6rem;
-  color: var(--text-color-dark);
-  margin-bottom: 1rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  color: var(--color-green);
+  text-align: center;
 }
 
+
+/* Newsletter */
 .newsletter-card {
   background-color: #f8f9fa;
-  padding: 4rem 3rem;
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 3rem 3rem;
   border-radius: 16px;
-  border-left: 4px solid var(--color-line);
+  border-left: 4px solid var(--color-green);
+  text-align: center;
 }
 
 .newsletter-card h3 {
-  font-size: 2.4rem;
-  color: var(--text-color-dark);
-  margin-bottom: 2rem;
+  color: var(--color-green);
   font-weight: 600;
   text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
 }
 
 .newsletter-card p {
@@ -2259,9 +2198,12 @@ section {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .newsletter-form-minimal input {
+  flex: 1;
   padding: 1.6rem 2.5rem;
   border: 2px solid #e0e0e0;
   border-radius: 50px;
@@ -2277,7 +2219,7 @@ section {
 
 .btn-newsletter-minimal {
   padding: 1.6rem 3rem;
-  background-color: var(--color-line);
+  background-color: var(--color-green);
   color: white;
   border: none;
   border-radius: 50px;
@@ -2290,32 +2232,102 @@ section {
 }
 
 .btn-newsletter-minimal:hover {
-  background-color: var(--color-green);
+  background-color: var(--color-line);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 208, 250, 0.3);
 }
 
+.checkbox-newsletter {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+.checkbox-newsletter input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 10px;
+  border: 2px solid var(--color-green);
+  border-radius: 4px;
+  background-color: #fff;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.checkbox-newsletter input[type="checkbox"]:checked {
+  background-color: var(--color-green);
+  border-color: var(--color-green);
+}
+
+.checkbox-newsletter input[type="checkbox"]:checked::after {
+  content: "✓";
+  position: absolute;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.checkbox-newsletter input[type="checkbox"]:hover {
+  border-color: var(--color-green);
+}
+
+.checkbox-newsletter label {
+  font-size: 15px;
+  color: var(--text-color-main);
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+.btn-newsletter-minimal:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
 .status-message {
   text-align: center;
-  margin-top: 1rem;
-  font-size: 1.4rem;
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
   color: var(--color-green);
 }
 
-/* Responsivo para celulares */
+/* Responsivo para telas pequenas */
 @media (max-width: 768px) {
   .contatos-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-  
   .contatos-header h2 {
-    font-size: 3.5rem;
+    font-size: 4rem;
   }
-  
-  .contatos-info-card,
+  .contatos-lead {
+    font-size: 2rem;
+  }
+  .contatos-info-wrapper {
+    padding: 3rem 2rem;
+  }
   .newsletter-card {
     padding: 3rem 2rem;
+  }
+  .contatos-info-list {
+    flex-direction: column;
+    padding: 3rem 2rem;
+    gap: 2rem;
+  }
+  .bton-newsletter-minimal,
+  .contato-link,
+  .contato-item {
+    min-width: 100%;
+  }
+  .newsletter-form-minimal {
+    flex-direction: column;
   }
 }
 
@@ -2408,302 +2420,7 @@ section {
   }
 }
 
-/* Seção Contatos */
-.contatos-section {
-  background-color: white;
-  padding: 6rem 0 3rem 0;
-  margin-bottom: 10px;
-}
-
-.contatos-header {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 5rem auto;
-}
-
-.contatos-header h2 {
-  font-size: 5rem;
-  color: var(--text-color-dark);
-  margin-bottom: 2rem;
-  font-weight: 700;
-}
-
-.contatos-lead {
-  font-size: 2.2rem;
-  color: var(--text-color-main);
-  margin-bottom: 0;
-  line-height: 1.6;
-}
-
-.contatos-info-wrapper {
-  max-width: 1200px;
-  margin: 0 auto 6rem auto;
-  background-color: #f8f9fa;
-  padding: 3rem 2.5rem;
-  border-radius: 16px;
-  border-left: 4  px solid var(--color-green);
-}
-
-.contatos-info-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-}
-
-.contato-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  flex: 1;
-  min-width: 200px;
-}
-
-.contato-titulo {
-  font-size: 1.6rem;
-  color: var(--color-green);
-  margin: 0;
-  font-weight: 600;
-  text-align: center;
-}
-
-.contato-icon-minimal {
-  font-size: 2rem;
-}
-
-.newsletter-card {
-  max-width: 700px;
-  margin: 0 auto;
-  background-color: #f8f9fa;
-  padding: 3rem 3rem;
-  border-radius: 16px;
-  border-left: 4px solid var(--color-green);
-  text-align: center;
-}
-
-.newsletter-card h3 {
-  font-size: 2.8rem;
-  color: var(--color-green);
-  margin-bottom: 1.5rem;
-}
-
-.newsletter-card p {
-  font-size: 1.8rem;
-  color: var(--text-color-main);
-  margin-bottom: 2.5rem;
-  font-weight: 500;
-}
-
-.newsletter-form-minimal {
-  display: flex;
-  gap: 1.5rem;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.newsletter-form-minimal input {
-  flex: 1;
-  padding: 1.6rem 2.5rem;
-  border: 2px solid #e0e0e0;
-  border-radius: 50px;
-  font-size: 1.6rem;
-  font-family: inherit;
-  transition: border-color 0.3s ease;
-}
-
-.newsletter-form-minimal input:focus {
-  outline: none;
-  border-color: var(--color-green);
-}
-
-.btn-newsletter-minimal {
-  padding: 1.6rem 3rem;
-  background-color: var(--color-green);
-  color: white;
-  border: none;
-  border-radius: 50px;
-  font-size: 1.6rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: inherit;
-  white-space: nowrap;
-}
-
-.btn-newsletter-minimal:hover {
-  background-color: var(--color-line);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 191, 99, 0.3);
-}
-
-.checkbox-newsletter {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin: 20px 0;
-  cursor: pointer;
-}
-
-.checkbox-newsletter input[type="checkbox"] {
-  appearance: none;
-  -webkit-appearance: none;
-  padding: 10px;
-  border: 2px solid var(--color-green);
-  border-radius: 4px;
-  background-color: #fff;
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
-.checkbox-newsletter input[type="checkbox"]:checked {
-  background-color: var(--color-green);
-  border-color: var(--color-green);
-}
-
-.checkbox-newsletter input[type="checkbox"]:checked::after {
-  content: "✓";
-  position: absolute;
-  color: white;
-  font-size: 10px;
-  font-weight: bold;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.checkbox-newsletter input[type="checkbox"]:hover {
-  border-color: var(--color-green);
-}
-
-.checkbox-newsletter label {
-  font-size: 15px;
-  color: var(--text-color-main);
-  cursor: pointer;
-  line-height: 1.5;
-}
-
-.btn-newsletter-minimal:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
-}
-.status-message {
-  margin-top: 1.5rem;
-  font-size: 1.5rem;
-  color: var(--color-green);
-}
-
-/* Responsivo para contatos */
-@media (max-width: 768px) {
-  .contatos-header h2 {
-    font-size: 4rem;
-  }
-  
-  .contatos-lead {
-    font-size: 2rem;
-  }
-  
-  .contatos-info-wrapper {
-    padding: 3rem 2rem;
-  }
-  
-  .contatos-info-list {
-    flex-direction: column;
-    gap: 2rem;
-  }
-  
-  .contato-item {
-    min-width: 100%;
-  }
-  
-  .contato-link {
-    width: 100%;
-  }
-  
-  .newsletter-card {
-    padding: 3rem 2rem;
-  }
-  
-  .newsletter-form-minimal {
-    flex-direction: column;
-  }
-  
-  .btn-newsletter-minimal {
-    width: 100%;
-  }
-}
-
-/* Responsivo para hero */
-@media (max-width: 992px) {
-  .hero-content {
-    grid-template-columns: 1fr;
-    gap: 4rem;
-    text-align: center;
-  }
-  
-  .hero-title {
-    font-size: 3.6rem;
-  }
-  
-  .hero-description {
-    font-size: 1.8rem;
-    padding: 1.8rem 2rem;
-  }
-  
-  .hero-buttons {
-    justify-content: center;
-  }
-  
-  .hero-left .header-h2 {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .section-hero {
-    padding: 6rem 0;
-    min-height: auto;
-  }
-  
-  .hero-content {
-    gap: 3rem;
-  }
-  
-  .hero-title {
-    font-size: 3rem;
-  }
-  
-  .hero-description {
-    font-size: 1.7rem;
-    padding: 1.5rem 1.8rem;
-  }
-  
-  .hero-description stro
-  
-  .hero-img {
-    max-width: 350px;
-  }
-  
-  .hero-left .header-h2 {
-    font-size: 1.8rem;
-    padding: 12px 24px;
-  }
-  
-  .hero-buttons {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  .hero-buttons .btn {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-/* Estilo para o ícone Home no nav */
+/* botão Home do nav */
 .nav-home-icon {
   height: 57px;
   width: auto;
